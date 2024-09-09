@@ -7,6 +7,49 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>test</h1>
+    <h1>Test</h1>
+    <table id="table" border="1">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Udin</td>
+          <td>Male</td>
+          <td>udin123@gmail.com</td>
+          <td>081112345678</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function addRow(no, name, gender, email, phone) {
+        let table = document.getElementById("table");
+
+        let newRow = table.insertRow();
+
+        let cell1 = newRow.insertCell(0);
+        let cell2 = newRow.insertCell(1);
+        let cell3 = newRow.insertCell(2);
+        let cell4 = newRow.insertCell(3);
+        let cell5 = newRow.insertCell(4);
+
+        cell1.innerHTML = no;
+        cell2.innerHTML = name;
+        cell3.innerHTML = gender;
+        cell4.innerHTML = email;
+        cell5.innerHTML = phone;
+      }
+      addRow(2, "Fitris", "Female", "fitri@gmail.com", "08274757363");
+      addRow(3, "mail", "Male", "Mael@gmail.com", "081742783");
+      addRow(4, "mails", "Male", "Maels@gmail.com", "08174278367");
+    </script>
   </body>
 </html>
