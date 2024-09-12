@@ -1,0 +1,153 @@
+.body {
+  background-color: hsl(222, 26%, 31%);
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 30%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  color: hsl(0, 0%, 100%);
+}
+.display {
+  background: hsl(224, 36%, 15%);
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  border: black;
+  background-color: hsl(224, 36%, 15%);
+  padding: 10px;
+  border-radius: 10px;
+  color: hsl(221, 14%, 31%);
+}
+
+button {
+  padding: 15px;
+  font-size: 1.5em;
+  border: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 2px hsl(28, 16%, 65%);
+}
+
+.del {
+  background-color: hsl(225, 21%, 49%);
+  color: #fff;
+}
+
+.del:hover {
+  background-color: red;
+}
+
+.reset {
+  grid-column: span 2;
+  background: hsl(225, 21%, 49%);
+  color: #fff;
+}
+
+.reset:hover {
+  background: red;
+}
+
+.equal {
+  grid-column: span 2;
+  background: hsl(6, 63%, 50%);
+  color: #fff;
+}
+/* From Uiverse.io by namecho */
+.switch {
+  --button-width: 3.5em;
+  --button-height: 2em;
+  --toggle-diameter: 1.5em;
+  --button-toggle-offset: calc(
+    (var(--button-height) - var(--toggle-diameter)) / 2
+  );
+  --toggle-shadow-offset: 10px;
+  --toggle-wider: 3em;
+  --color-grey: #cccccc;
+  --color-green: #4296f4;
+}
+
+.slider {
+  display: inline-block;
+  width: var(--button-width);
+  height: var(--button-height);
+  background-color: var(--color-grey);
+  border-radius: calc(var(--button-height) / 2);
+  position: relative;
+  transition: 0.3s all ease-in-out;
+}
+
+.slider::after {
+  content: "";
+  display: inline-block;
+  width: var(--toggle-diameter);
+  height: var(--toggle-diameter);
+  background-color: #fff;
+  border-radius: calc(var(--toggle-diameter) / 2);
+  position: absolute;
+  top: var(--button-toggle-offset);
+  transform: translateX(var(--button-toggle-offset));
+  box-shadow: var(--toggle-shadow-offset) 0
+    calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+  transition: 0.3s all ease-in-out;
+}
+
+.switch input[type="checkbox"]:checked + .slider {
+  background-color: var(--color-green);
+}
+
+.switch input[type="checkbox"]:checked + .slider::after {
+  transform: translateX(
+    calc(
+      var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)
+    )
+  );
+  box-shadow: calc(var(--toggle-shadow-offset) * -1) 0
+    calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.switch input[type="checkbox"]:active + .slider::after {
+  width: var(--toggle-wider);
+}
+
+.switch input[type="checkbox"]:checked:active + .slider::after {
+  transform: translateX(
+    calc(
+      var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)
+    )
+  );
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 80%;
+  }
+  button {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+}
