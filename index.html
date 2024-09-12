@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link
+      id="themeStyle"
+      rel="stylesheet"
+      href="Phincon_week_1/day_4/calculator/css/theme2.css"
+    />
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="header">
+        <h1 class="title">calc</h1>
+        <label class="switch">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="display" id="display">0</div>
+      <div class="buttons">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="del">del</button>
+
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operation">+</button>
+
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operation">-</button>
+
+        <button>.</button>
+        <button>0</button>
+        <button class="operation">/</button>
+        <button class="operation">x</button>
+
+        <button class="reset">reset</button>
+        <button class="equal">=</button>
+      </div>
+    </div>
+
+    <script>
+      const display = document.getElementById("display");
+      const button = document.querySelectorAll("button");
+      let input = "";
+      let operand = null;
+      let operator = null;
+
+      function calculateHandler(number1, number2, operators) {
+        switch (operators) {
+          case "+":
+            return number1 + number2;
+          case "-":
+            return number1 - number2;
+          case "x":
+            return number1 * number2;
+          case "/":
+            return number2 !== 0 ? number1 / number2 : "error";
+          default:
+            return 0;
+        }
+      }
+
+      button.forEach((button) => {
+        button.addEventListener("click", () => {
+          const buttonValue = button.textContent;
+          console.log(">>>", input);
+
+          if (buttonValue === "del") {
+            input = input.slice(0, -1);
+            display.textContent = input || "0";
+          } else if (buttonValue === "reset") {
+            input = "";
+            operand = null;
+            operator = null;
+            display.textContent = "0";
+          } else if (["+", "-", "x", "/"].includes(buttonValue)) {
+            if (input !== "") {
+              if (operand === null) {
+                operand = parseFloat(input);
+              } else if (operator) {
+                operand = calculateHandler(
+                  operand,
+                  parseFloat(input),
+                  operator
+                );
+              }
+              operator = buttonValue;
+              input = "";
+              display.textContent = operator;
+            }
+          } else if (buttonValue === "=") {
+            if (operand !== null && operator && input !== "") {
+              display.textContent = calculateHandler(
+                operand,
+                parseFloat(input),
+                operator
+              );
+              input = display.textContent;
+              operand = null;
+              operator = null;
+            }
+          } else {
+            input += buttonValue;
+            display.textContent = input;
+          }
+        });
+      });
+
+      const themeSwitch = document.getElementById("themeSwitch");
+      const themeStyle = document.getElementById("themeStyle");
+
+      themeSwitch.addEventListener("change", () => {
+        if (themeSwitch.checked) {
+          themeStyle.href = "Phincon_week_1/day_4/calculator/css/theme1.css";
+        } else {
+          themeStyle.href = "Phincon_week_1/day_4/calculator/css/theme2.css";
+        }
+      });
+    </script>
+  </body>
+</html>
