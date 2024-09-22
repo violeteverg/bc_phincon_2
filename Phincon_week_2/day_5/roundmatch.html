@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Round Match</title>
+  </head>
+  <body class="flex h-screen items-center justify-center">
+    <div
+      class="bg-blue-300 h-[50%] w-[60%] gap-4 flex flex-col justify-center items-center mx-auto rounded-lg"
+    >
+      <input
+        type="number"
+        id="input-game"
+        placeholder="Masukkan jumlah ronde"
+        class="w-[40%] p-4 rounded-lg"
+      />
+      <input
+        type="text"
+        id="player1Names"
+        placeholder="Masukkan Nama Player 1"
+        class="w-[40%] p-4 rounded-lg"
+      />
+      <input
+        type="text"
+        id="player2Names"
+        placeholder="Masukkan Nama Player 2"
+        class="w-[40%] p-4 rounded-lg"
+      />
+      <button
+        id="start-game"
+        class="w-[40%] p-4 rounded-lg border border-black bg-green-300 hover:bg-green-400"
+      >
+        Mulai Game
+      </button>
+    </div>
+
+    <script src="roundmatch.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Battle</title>
+  </head>
+  <body class="w-full h-screen flex flex-col items-center justify-center">
+    <p id="display-round" class="text-2xl font-bold"></p>
+    <div
+      class="flex w-[80%] h-[50%] gap-2 p-4 justify-center items-center rounded-xl"
+    >
+      <div
+        id="player1"
+        class="bg-blue-300 w-[50%] flex flex-col justify-center items-center gap-2 h-[40%] rounded-md text-white"
+      >
+        <p id="player1-name"></p>
+        <div class="flex w-full justify-center gap-2">
+          <button
+            id="P1-R"
+            class="bg-slate-500 w-[20%] rounded-md py-2 hover:bg-slate-600"
+          >
+            Batu
+          </button>
+          <button
+            id="P1-P"
+            class="bg-yellow-500 w-[20%] rounded-md py-2 hover:bg-yellow-600"
+          >
+            Kertas
+          </button>
+          <button
+            id="P1-S"
+            class="bg-red-500 w-[20%] rounded-md py-2 hover:bg-red-600"
+          >
+            Gunting
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="player2"
+        class="bg-blue-300 w-[50%] flex flex-col justify-center items-center gap-2 h-[40%] rounded-md text-white"
+      >
+        <p id="player2-name"></p>
+        <div class="flex w-full justify-center gap-2">
+          <button
+            id="P2-R"
+            class="bg-slate-500 w-[20%] rounded-md py-2 hover:bg-slate-600"
+          >
+            Batu
+          </button>
+          <button
+            id="P2-P"
+            class="bg-yellow-500 w-[20%] rounded-md py-2 hover:bg-yellow-600"
+          >
+            Kertas
+          </button>
+          <button
+            id="P2-S"
+            class="bg-red-500 w-[20%] rounded-md py-2 hover:bg-red-600"
+          >
+            Gunting
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      id="next-round"
+      class="w-[30%] border border-black py-2 rounded-xl hover:bg-green-300"
+    >
+      Ronde Berikutnya
+    </button>
+
+    <script src="battle.js" type="module"></script>
+  </body>
+</html>

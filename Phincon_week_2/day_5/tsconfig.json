@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./",
+    "noEmitOnError": true,
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["roundmatch.ts", "battle.ts", "result.ts"],
+  "exclude": ["node_modules"]
+}
