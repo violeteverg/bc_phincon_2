@@ -3,5 +3,8 @@ function hitungKemunculankata(kalimat, kata) {
 }
 
 console.log(
-  hitungKemunculankata("Saya suka makan nasi, saya juga suka minum air", "suka")
+  hitungKemunculankata(
+    "Saya sukasuka makan nasi, saya juga suka minum air",
+    "Saya"
+  )
 );

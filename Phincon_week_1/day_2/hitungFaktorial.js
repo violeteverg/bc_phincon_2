@@ -8,4 +8,4 @@ function hitungFaktorial(n) {
   return n;
 }
 
-console.log(hitungFaktorial(5));
+console.log(hitungFaktorial(-5));

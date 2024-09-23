@@ -43,16 +43,16 @@ function rockPaperScissors(players, arr) {
   }
 }
 
-// console.log(
-//   "juara",
-//   rockPaperScissors(
-//     ["udin", "kulo"],
-//     [
-//       ["P", "P"],
-//       ["R", "P"],
-//     ]
-//   )
-// );
+console.log(
+  "juara",
+  rockPaperScissors(
+    ["udin", "kulo"],
+    [
+      ["P", "P"],
+      ["R", "P"],
+    ]
+  )
+);
 
 function getBudget(arr) {
   return arr.reduce((acc, person) => {
