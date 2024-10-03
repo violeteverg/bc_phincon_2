@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "productName": "Tas",
+    "price": 100000
+  },
+  {
+    "id": 2,
+    "productName": "Jam Tangan",
+    "price": 200000
+  },
+  {
+    "id": 3,
+    "productName": "Sepatu",
+    "price": 300000
+  },
+  {
+    "id": 4,
+    "productName": "Baju",
+    "price": 400000
+  },
+  {
+    "id": 5,
+    "productName": "Celana",
+    "price": 500000
+  }
+]
