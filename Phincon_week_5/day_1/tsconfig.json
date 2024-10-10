@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "**/*.ts",
+    "src/views/**/*.hbs",
+    ".sequelizerc",
+    "src/config/seq.js",
+    "src/config/seq.js"
+  ],
+  "exclude": ["node_modules"]
+}
