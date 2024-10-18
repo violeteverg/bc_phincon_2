@@ -7,14 +7,16 @@ import Profile from "./src/models/profile";
 import User from "./src/models/user";
 import Role from "./src/models/role";
 import UserRole from "./src/models/userRole";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // app.get("/", (req: Request, res: Response) => {
 //   res.send("hello");

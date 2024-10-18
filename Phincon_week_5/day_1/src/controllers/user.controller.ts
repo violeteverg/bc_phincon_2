@@ -184,6 +184,18 @@ class UserController {
           message: " ur password must be correct",
         });
       }
+      await db.Token.create({
+        tkn_type: "LOGIN",
+        tkn_value: loginToken,
+        tkn_description: `description to ${user.id}`,
+        tkn_client_ip: (await getClientIP()).ip,
+        tkn_client_agent: new Navigator().userAgent,
+        tkn_us_id: user.id,
+        tkn_expired_on: new Date(Number(new Date()) + 60 * 60 * 1000),
+        tkn_active: true,
+        tkn_created_by: user.id,
+        tkn_updated_by: user.id,
+      });
       delete user.dataValues.us_password;
       user.dataValues["token"] = loginToken;
       const options = {

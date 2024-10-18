@@ -11,16 +11,17 @@ userRouter.post(
   validateAndCheckDuplicates,
   userController.registerUser
 );
-// userRouter.post("/login", userController.loginUser);
+userRouter.post("/login", userController.loginUser);
 // userRouter.get("/verify-email", verifyEmail);
 userRouter.get("/get-user", userController.getAll);
-// userRouter.get("/check-cookies", (req, res) => {
-//   console.log(req.cookies.user);
-//   res.status(200).send({
-//     code: 200,
-//     message: "success",
-//     data: req.cookies.user,
-//   });
-// });
+userRouter.get("/check-cookies", (req, res) => {
+  console.log(req.cookies.user, "<<<<<");
+
+  res.status(200).send({
+    code: 200,
+    message: "success",
+    data: req.cookies.user,
+  });
+});
 
 export default userRouter;
