@@ -8,6 +8,7 @@ import User from "./src/models/user";
 import Role from "./src/models/role";
 import UserRole from "./src/models/userRole";
 import cookieParser from "cookie-parser";
+import { redisClient } from "./src/middleware/cachedRedisMiddleware";
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ const port = process.env.PORT || 3001;
 app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+redisClient.on("connect", () => {
+  console.log("connect");
+});
 
 // app.get("/", (req: Request, res: Response) => {
 //   res.send("hello");

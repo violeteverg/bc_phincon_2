@@ -11,6 +11,7 @@ import { getClientIP } from "../helpers/getClientIp";
 import { Navigator } from "node-navigator";
 import db from "../models";
 import { ResponseStatusMsg } from "../helpers/statusMessage";
+import { redisClient } from "../middleware/cachedRedisMiddleware";
 const responseStatus = new ResponseStatusMsg();
 class UserController {
   async getAll(req: Request, res: Response) {
@@ -172,6 +173,7 @@ class UserController {
         "LOGIN",
         "1d"
       );
+      console.log(loginToken);
       const isActive = user.us_active;
       if (!isActive) {
         return res.status(401).send({
@@ -202,7 +204,12 @@ class UserController {
         expires: new Date(Number(new Date()) + 24 * 60 * 60 * 1000),
         httpOnly: true,
       };
-      return res.cookie("user", user, options).status(200).send({
+
+      redisClient.set("user", JSON.stringify(user), "EX", 30);
+      // redisClient.setex(`user:${user.id}`, 30, user);
+      console.log(user, ">>>>");
+      console.log("test");
+      return res.status(200).send({
         status: "success",
         code: 200,
         data: user,

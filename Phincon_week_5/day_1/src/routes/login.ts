@@ -2,6 +2,7 @@ import { Router } from "express";
 import UserController from "../controllers/user.controller";
 import { validateAndCheckDuplicates } from "../middleware/validations/validation";
 import { verifyEmail } from "../middleware/token";
+import { cacheMiddleware } from "../middleware/cachedRedisMiddleware";
 
 const userRouter = Router();
 const userController = new UserController();
@@ -11,7 +12,7 @@ userRouter.post(
   validateAndCheckDuplicates,
   userController.registerUser
 );
-userRouter.post("/login", userController.loginUser);
+userRouter.post("/login", cacheMiddleware, userController.loginUser);
 // userRouter.get("/verify-email", verifyEmail);
 userRouter.get("/get-user", userController.getAll);
 userRouter.get("/check-cookies", (req, res) => {
