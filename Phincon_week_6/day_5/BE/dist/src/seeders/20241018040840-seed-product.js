@@ -1,0 +1,34 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+const { faker } = require("@faker-js/faker");
+// import { faker } from "@faker-js/faker";
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+    up(queryInterface, Sequelize) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const products = [...Array(20)].map(() => ({
+                name: faker.commerce.product(),
+                price: faker.commerce.price(),
+                stock: faker.number.int({ min: 1, max: 100 }),
+                categoryId: faker.number.int({ min: 1, max: 20 }),
+            }));
+            const categories = [...Array(20)].map(() => ({
+                name: faker.commerce.productName(),
+            }));
+            yield queryInterface.bulkInsert("Category", categories);
+            yield queryInterface.bulkInsert("Product", products);
+        });
+    },
+    down(queryInterface, Sequelize) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield queryInterface.bulkDelete("Product", null, {});
+        });
+    },
+};
